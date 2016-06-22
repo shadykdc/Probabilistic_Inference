@@ -3,20 +3,20 @@
 # Coursework in Python 
 from IDAPICourseworkLibrary import *
 from numpy import *
+
+#
+# Coursework 4
 #
 
-# Coursework 4 begins here
-#
 def Mean(theData):
     realData = theData.astype(float)
     noVariables=theData.shape[1] 
     mean = []
-    # Coursework 4 task 1 begins here
     mean_int=0.0
     for j in range(noVariables):
-      mean_int=(numpy.mean(realData[:,j]))
-      mean.append(mean_int)
-    # Coursework 4 task 1 ends here
+        mean_int=(numpy.mean(realData[:,j]))
+        mean.append(mean_int)
+    
     return array(mean)
 
 
@@ -24,56 +24,47 @@ def Covariance(theData):
     realData = theData.astype(float)
     noVariables=theData.shape[1] 
     covar = zeros((noVariables, noVariables), float)
-    # Coursework 4 task 2 begins here
+    
     mean=Mean(theData)
     N=len(realData[:,0])
     for i in xrange(noVariables):
-      for j in xrange(noVariables):
-	for k in xrange(N):
-	  covar[i][j]+=(realData[k,i]-mean[i])*(realData[k,j]-mean[j])
+        for j in xrange(noVariables):
+            for k in xrange(N):
+            covar[i][j]+=(realData[k,i]-mean[i])*(realData[k,j]-mean[j])
     covar/=N
-    # Coursework 4 task 2 ends here
+
     return covar
- 
 
-  
+
 def CreateEigenfaceFiles(theBasis):
-    # Coursework 4 task 3 begins here
     for i in range(len(theBasis[:,0])):
-      filename='PrincipalComponent' + str(i) + '.jpg'
-      SaveEigenface(theBasis[i,:],filename)
-    # Coursework 4 task 3 ends here
-
+        filename='PrincipalComponent' + str(i) + '.jpg'
+        SaveEigenface(theBasis[i,:],filename)
 
 
 def ProjectFace(theBasis, theMean, theFaceImage):
     magnitudes = []
-    # Coursework 4 task 4 begins here
     data_faceimage_normalized=array(theFaceImage)-array(theMean)
     
     for i in range(len(theBasis[:,0])):
-      magnitudes.append(sum(theBasis[i,:]*data_faceimage_normalized))
-    # Coursework 4 task 4 ends here
+        magnitudes.append(sum(theBasis[i,:]*data_faceimage_normalized))
     
     return array(magnitudes)
 
 
 
 def CreatePartialReconstructions(aBasis, aMean, componentMags):
-    # Coursework 4 task 5 begins here
     current_image=aMean#We start with the mean
     
     for i in range(len(componentMags)):
-      current_image+=componentMags[i]*aBasis[i,:]
-      filename='Reconstruction_Step' + str(i) + '.jpg'
-      SaveEigenface(current_image,filename)
-    # Coursework 4 task 5 ends here
+        current_image+=componentMags[i]*aBasis[i,:]
+        filename='Reconstruction_Step' + str(i) + '.jpg'
+        SaveEigenface(current_image,filename)
 
 
 
 def PrincipalComponents(theData):
     orthoPhi = []
-    # Coursework 4 task 3 begins here
     # The first part is almost identical to the above Covariance function, but because the
     # data has so many variables you need to use the Kohonen Lowe method described in lecture 15
     # The output should be a list of the principal components normalised and sorted in descending 
@@ -86,23 +77,20 @@ def PrincipalComponents(theData):
     Eigenvectors=dot(U.T,EigenUUtranspose)
 
     for i in range(len(Eigenvectors[0,:])): #Normalisation, the basis is already orthogonal (excluding the vector with eigenvalue 0)
-      Eigenvectors[:,i]/=sqrt(sum(Eigenvectors[:,i]*Eigenvectors[:,i]))
-      
+        Eigenvectors[:,i]/=sqrt(sum(Eigenvectors[:,i]*Eigenvectors[:,i]))
       
     for i in range(len(Eigenvectors[0,:])): #Sort
-      for j in range(i,len(Eigenvectors[0,:])-1):
-	if(Eigenvalues[j]<Eigenvalues[j+1]):
-	  temp=Eigenvalues[j]
-	  Eigenvalues[j]=Eigenvalues[j+1]
-	  Eigenvalues[j+1]=temp
+        for j in range(i,len(Eigenvectors[0,:])-1):
+            if(Eigenvalues[j]<Eigenvalues[j+1]):
+            temp=Eigenvalues[j]
+            Eigenvalues[j]=Eigenvalues[j+1]
+            Eigenvalues[j+1]=temp
 	  
-	  temp2=Eigenvectors[:,j].copy()
-	  Eigenvectors[:,j]=Eigenvectors[:,j+1].copy()
-	  Eigenvectors[:,j+1]=temp2.copy()
+            temp2=Eigenvectors[:,j].copy()
+            Eigenvectors[:,j]=Eigenvectors[:,j+1].copy()
+            Eigenvectors[:,j+1]=temp2.copy()
     
     orthoPhi=Eigenvectors.T
-
-    # Coursework 4 task 6 ends here
     return array(orthoPhi)
 
 
