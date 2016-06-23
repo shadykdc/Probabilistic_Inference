@@ -23,14 +23,6 @@ Use the spanning tree algorithm to find a singly connected Bayesian network from
 
 ### Functions:
 * **MutualInformation:** calculates the mutual information (or Kullback Leibler divergence) of two variables from their joint probability table.
-* **DependencyMatrix:** 
-Complete the function “DependencyMatrix” which uses mutual information as a measure and creates a symmetric
-matrix showing the pairwise dependencies between the variables in a data set.
-Task 2.3: 6 marks
-Complete the function “DependencyList” which turns the dependency matrix into a list or arcs ordered by their
-dependency. Your list items should be triplets: [dependency, node1, node2]. Using your dependency list draw
-by hand the network for the HepatitisC data set. Make an image file of your network (either by scanning your
-hand drawing or using a drawing package (eg powerpoint or open office)).
-Task 2.4: 6 marks (very difficult)
-Starting with a dependency list find the maximally weighted spanning tree automatically, and append it as a list
-to your results file. Don’t wory about finding the causal directions.
+* **DependencyMatrix:** uses mutual information as a measure and creates a symmetric matrix showing the pairwise dependencies between the variables in a data set.
+* **DependencyList:** turns the dependency matrix into a list of arcs ordered by their dependency. The list items are triplets: [dependency, node1, node2].
+* **SpanningTreeAlgorithm:** finds the maximally weighted spanning tree using the dependency list.
