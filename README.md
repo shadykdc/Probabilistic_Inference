@@ -7,7 +7,7 @@ There are some data files necessary to run the code which can be found [here](ht
 [Here](https://www.doc.ic.ac.uk/~dfg/ProbabilisticInference/Bayesian.html) is a link to the course material.
 
 
-## Coursework Part 1: The Naive Bayesian Network
+## Part 1: The Naive Bayesian Network
 Calculate joint and conditional probability tables (link matrices) and make inferences with a naive Bayesian network.
 
 ### Functions:
@@ -19,7 +19,7 @@ Calculate joint and conditional probability tables (link matrices) and make infe
 node, for example [0.1,0.3,0.4,0.2].
 
 
-## Coursework Part 2: The Maximally Weighted Spanning Tree
+## Part 2: The Maximally Weighted Spanning Tree
 Use the spanning tree algorithm to find a singly connected Bayesian network from a data set.
 
 ### Functions:
@@ -29,7 +29,7 @@ Use the spanning tree algorithm to find a singly connected Bayesian network from
 * **SpanningTreeAlgorithm:** finds the maximally weighted spanning tree using the dependency list.
 
 
-## Coursework Part 3: The Minimum Description Length Metric
+## Part 3: The Minimum Description Length Metric
 Find the minimum description length (MDL) measure of a Bayesian network and an associated data set.
 
 ### Functions:
@@ -40,7 +40,7 @@ Find the minimum description length (MDL) measure of a Bayesian network and an a
 * **MDLAccuracy:** which calculates log likelihood of the network given the data as described in the lectures.
 * **BestScoreAfterRemoval:** finds the best scoring network formed by deleting one arc from the spanning tree.
 
-## Coursework Part 4: Principal Component Analysis
+## Part 4: Principal Component Analysis
 Use covariance estimation to find principal components of a data set.
 
 ### Functions:
