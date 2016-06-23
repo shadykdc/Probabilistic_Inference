@@ -30,7 +30,7 @@ Use the spanning tree algorithm to find a singly connected Bayesian network from
 
 
 ## Coursework Part 3: The Minimum Description Length Metric
-This coursework is concerned with the minimum description length measure of a Bayesian network and an associated data set.
+Find the minimum description length (MDL) measure of a Bayesian network and an associated data set.
 
 ### Functions:
 * **CPT_2:** computes a conditional probability table (or link matrix) for variables with two parents.
@@ -39,3 +39,14 @@ This coursework is concerned with the minimum description length measure of a Ba
 * **JointProbability:** calculates the joint probability of a single point, supplied as a list eg [1,0,3,2,1,0], for a given Bayesian network.
 * **MDLAccuracy:** which calculates log likelihood of the network given the data as described in the lectures.
 * **BestScoreAfterRemoval:** finds the best scoring network formed by deleting one arc from the spanning tree.
+
+## Coursework Part 4: Principal Component Analysis
+Use covariance estimation to find principal components of a data set.
+
+### Functions:
+* **Mean:** calculates the mean vector of a data set represented (as usual) by a matrix in which the rows are data points and the columns are variables.
+* **Covariance:** calculates the covariance matrix of a data set represented as above.
+* **CreateEigenfaceFiles:** creates image files of the principal components (eigenfaces) in the format returned by ReadEigenfaceBasis().
+* **ProjectFace:** reads one image file (use c.pmg for your example) and projects it onto the principal component basis.
+* **CreatePartialReconstructions:** generates and saves image files of the reconstruction of an image from its component magnitudes.
+* **PrincipalComponents:** performs pca on a data set using the Kohonen Lowe method. Returns the orthonormal basis as a list of eigenfaces equivalent to the one returned by ReadEigenfaceBasis().
