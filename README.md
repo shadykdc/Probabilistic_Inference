@@ -41,7 +41,7 @@ Find the minimum description length (MDL) measure of a Bayesian network and an a
 * **BestScoreAfterRemoval:** finds the best scoring network formed by deleting one arc from the spanning tree.
 
 ## Part 4: Principal Component Analysis
-Use covariance estimation to find principal components of a data set.
+Use covariance estimation to find principal components of a data set. Then use PCA to deconstruct and reconstruct images.
 
 ### Functions:
 * **Mean:** calculates the mean vector of a data set represented (as usual) by a matrix in which the rows are data points and the columns are variables.
