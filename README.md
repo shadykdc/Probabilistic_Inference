@@ -1,10 +1,11 @@
 # Probabilistic_Inference
 
-This is just my coursework from my Intelligent Data and Probabilistic Inference course.
+This is my coursework from my Intelligent Data and Probabilistic Inference course.
 
 There are some data files necessary to run the code which can be found [here](https://www.doc.ic.ac.uk/~dfg/ProbabilisticInference/Coursework/).
 
 [Here](https://www.doc.ic.ac.uk/~dfg/ProbabilisticInference/Bayesian.html) is a link to the course material.
+
 
 ## Coursework Part 1: The Naive Bayesian Network
 Calculate joint and conditional probability tables (link matrices) and make inferences with a naive Bayesian network.
@@ -26,3 +27,15 @@ Use the spanning tree algorithm to find a singly connected Bayesian network from
 * **DependencyMatrix:** uses mutual information as a measure and creates a symmetric matrix showing the pairwise dependencies between the variables in a data set.
 * **DependencyList:** turns the dependency matrix into a list of arcs ordered by their dependency. The list items are triplets: [dependency, node1, node2].
 * **SpanningTreeAlgorithm:** finds the maximally weighted spanning tree using the dependency list.
+
+
+## Coursework Part 3: The Minimum Description Length Metric
+This coursework is concerned with the minimum description length measure of a Bayesian network and an associated data set.
+
+### Functions:
+* **CPT_2:** computes a conditional probability table (or link matrix) for variables with two parents.
+* **HepatitisCBayesianNet:** writes a network definition for the HepatitisC data set.
+* **MDLSize:** calculates the MDL size of a Bayesian Network
+* **JointProbability:** calculates the joint probability of a single point, supplied as a list eg [1,0,3,2,1,0], for a given Bayesian network.
+* **MDLAccuracy:** which calculates log likelihood of the network given the data as described in the lectures.
+* **BestScoreAfterRemoval:** finds the best scoring network formed by deleting one arc from the spanning tree.
